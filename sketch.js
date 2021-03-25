@@ -24,9 +24,9 @@ function preload() {
 function setup() {
   createCanvas(displayWidth, displayHeight);
   
-  jungle = createSprite(683,590,9999,9999);
+  jungle = createSprite(683,400);
   jungle.addImage(backImage);
-  jungle.scale=1.35
+  jungle.scale=1.359
   // jungle.VelocityX=-4
   // jungle.x = jungle.width/2;
   
@@ -49,17 +49,18 @@ function setup() {
   bananasGroup = new Group();
   obstaclesGroup1 = new Group();
 
-  camera.position.x = player.position.x + 400;
-  camera.position.y = displayHeight/2;
+  camera.position.x = player.position.x + 385;
+  camera.position.y = displayHeight-400;
   
 }       
 
 function draw() {
-  background(128);
-  stroke("red");
-  fill("red");
-  textSize(14);
-  text("Score: "+ score,1300,50);
+  background("grey");
+  stroke("purple");
+  strokeWeight(3);
+  fill("purple");
+  textSize(20);
+  text("S C O R E : "+ score,1200,30);
   
   if(gameState === PLAY){
     
@@ -137,7 +138,7 @@ function callBanana(){
   if(World.frameCount % 190 === 0) {
     var banana = createSprite(1366,120,40,10);
     banana.addImage("food",banana_image);
-    banana.y = Math.round(random(100,1000));
+    banana.y = Math.round(random(100,500));
     banana.scale = 0.1;
     banana.velocityX = -7 ;
     banana.lifetime = 300;
